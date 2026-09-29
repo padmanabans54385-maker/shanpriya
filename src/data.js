@@ -53,7 +53,7 @@ export const photos = [
 ];
 
 // How many seconds each photo is shown (1000 = 1 second)
-export const photoDuration = 3000;  // ← 3000 = 3 seconds
+export const photoDuration = 5000;  // ← 3000 = 3 seconds
 
 // ================================================================
 //  ✏️  STEP 3 — CUSTOMIZE ALL TEXT
