@@ -1,0 +1,143 @@
+/* ---- FinalMessage Styles ---- */
+
+.footer {
+  position: relative;
+  padding: clamp(5rem, 12vh, 8rem) 1.5rem clamp(4rem, 8vh, 6rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, #050008 0%, #0c0014 100%);
+  overflow: hidden;
+}
+
+.glowBg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(
+    circle,
+    rgba(244, 63, 94, 0.15) 0%,
+    rgba(168, 85, 247, 0.08) 50%,
+    transparent 70%
+  );
+  pointer-events: none;
+  filter: blur(50px);
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(244, 63, 94, 0.25);
+  border-radius: 28px;
+  padding: clamp(2.5rem, 6vw, 4rem) clamp(1.5rem, 5vw, 3rem);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.6),
+    0 0 35px rgba(244, 63, 94, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.sparkleBadge {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(244, 63, 94, 0.2), rgba(168, 85, 247, 0.2));
+  border: 1px solid rgba(244, 63, 94, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.sparkleIcon {
+  width: 28px;
+  height: 28px;
+  color: #fb7185;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.25;
+  background: linear-gradient(135deg, #ffffff 30%, #fda4af 70%, #f43f5e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  max-width: 500px;
+  margin-bottom: 1.8rem;
+}
+
+.dateBadge {
+  display: inline-block;
+  padding: 0.4rem 1.2rem;
+  border-radius: 20px;
+  background: rgba(244, 63, 94, 0.12);
+  border: 1px solid rgba(244, 63, 94, 0.3);
+  color: #fda4af;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 2.2rem;
+}
+
+.replayBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.95rem 2.2rem;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #f43f5e 0%, #e11d48 50%, #9333ea 100%);
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btnIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.divider {
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(244, 63, 94, 0.3), transparent);
+  margin: 2.5rem 0 1.8rem 0;
+}
+
+.note {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.55);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.heartIcon {
+  width: 15px;
+  height: 15px;
+  color: #f43f5e;
+  display: inline;
+}

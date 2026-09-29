@@ -1,0 +1,133 @@
+/* ---- BirthdayHero Styles ---- */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(160deg, #050008 0%, #0d0018 50%, #0a000f 100%);
+}
+
+/* ---- Background glow blobs ---- */
+.blobTL {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  top: -180px;
+  left: -180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(100, 0, 130, 0.45) 0%, transparent 68%);
+  pointer-events: none;
+  animation: bdayBounce 8s ease-in-out infinite;
+}
+
+.blobBR {
+  position: absolute;
+  width: 550px;
+  height: 550px;
+  bottom: -160px;
+  right: -160px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 45, 120, 0.28) 0%, transparent 68%);
+  pointer-events: none;
+  animation: bdayBounce 10s ease-in-out infinite reverse;
+}
+
+.blobCenter {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(155, 39, 175, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+  animation: bdayHeartbeat 4s ease-in-out infinite;
+}
+
+/* ---- Content ---- */
+.content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+  text-align: center;
+  padding: 2rem 1.5rem;
+}
+
+.cakeEmoji {
+  font-size: clamp(4rem, 14vw, 8rem);
+  line-height: 1;
+  animation: bdayHeartbeat 2.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 25px rgba(255, 45, 120, 0.8));
+}
+
+.title {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: clamp(2.4rem, 8vw, 5.5rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  animation: bdayGlow 3s ease-in-out infinite;
+}
+
+.divider {
+  width: clamp(80px, 20vw, 160px);
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ff2d78, transparent);
+  transform-origin: center;
+}
+
+.subtitle {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: clamp(1rem, 3.5vw, 1.4rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.78);
+  letter-spacing: 0.04em;
+}
+
+.heartRow {
+  display: flex;
+  gap: 0.7rem;
+  font-size: clamp(1.2rem, 4vw, 1.8rem);
+  margin-top: 0.5rem;
+}
+
+/* ---- Scroll indicator ---- */
+.scrollHint {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  animation: bdayBounce 2s ease-in-out infinite;
+}
+
+.scrollText {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+}
+
+.chevron {
+  color: rgba(255, 45, 120, 0.7);
+}
+
+@media (max-width: 480px) {
+  .content { gap: 0.85rem; }
+  .scrollHint { bottom: 1.2rem; }
+}

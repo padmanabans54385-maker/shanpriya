@@ -1,0 +1,12 @@
+/* ---- BirthdayPage Styles ---- */
+
+.container {
+  min-height: 100vh;
+  width: 100%;
+  background: #050008;
+  color: #ffffff;
+  position: relative;
+  overflow-x: hidden;
+  line-height: 1.5;
+  font-family: var(--font-body);
+}

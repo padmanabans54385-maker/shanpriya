@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Pacifico&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+/* ============================================================
+   GLOBAL STYLES — Birthday Countdown Website (Vaishu Style)
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Times New Roman', Times, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !important;
+}
+
+:root {
+  --pink: #ff2d78;
+  --pink-light: #ff6eb0;
+  --purple: #9b27af;
+  --purple-dark: #6a0080;
+  --blue: #4040ff;
+  --dark: #050008;
+  --dark-2: #0a000f;
+  --neon-pink: #ff2d78;
+  --neon-glow: rgba(255, 45, 120, 0.7);
+  --font-body: 'Times New Roman', Times, serif, 'Segoe UI Emoji';
+  --font-heading: 'Times New Roman', Times, serif, 'Segoe UI Emoji';
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Times New Roman', Times, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !important;
+  background: var(--dark);
+  color: #fff;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* ============================================================
+   VAISHU SURPRISE SCREENS CUSTOM CSS
+   ============================================================ */
+
+.twinkle {
+  animation: twinkle 2.2s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.35;
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translateY(-2px) scale(1.05);
+  }
+}
+
+.spinner {
+  background-image: linear-gradient(rgb(186, 66, 255) 35%, rgb(0, 225, 255));
+  width: 180px;
+  height: 180px;
+  animation: spinning82341 1.7s linear infinite;
+  text-align: center;
+  border-radius: 100px;
+  filter: blur(1px);
+  box-shadow: 0px -5px 20px 0px rgb(186, 66, 255), 0px 5px 20px 0px rgb(0, 225, 255);
+}
+
+.spinner1 {
+  background-color: rgb(14, 0, 15);
+  width: 180px;
+  height: 180px;
+  border-radius: 100px;
+  filter: blur(10px);
+}
+
+@keyframes spinning82341 {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes flicker {
+  0% {
+    transform: skewX(5deg);
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.2), 0 0 20px rgba(255, 165, 0, 0.2), 0 0 60px rgba(255, 165, 0, 0.2), 0 0 80px rgba(255, 165, 0, 0.2);
+  }
+  25% {
+    transform: skewX(-5deg);
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.5), 0 0 20px rgba(255, 165, 0, 0.5), 0 0 60px rgba(255, 165, 0, 0.5), 0 0 80px rgba(255, 165, 0, 0.5);
+  }
+  50% {
+    transform: skewX(10deg);
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.3), 0 0 20px rgba(255, 165, 0, 0.3), 0 0 60px rgba(255, 165, 0, 0.3), 0 0 80px rgba(255, 165, 0, 0.3);
+  }
+  75% {
+    transform: skewX(-10deg);
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.4), 0 0 20px rgba(255, 165, 0, 0.4), 0 0 60px rgba(255, 165, 0, 0.4), 0 0 80px rgba(255, 165, 0, 0.4);
+  }
+  100% {
+    transform: skewX(5deg);
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.5), 0 0 20px rgba(255, 165, 0, 0.5), 0 0 60px rgba(255, 165, 0, 0.5), 0 0 80px rgba(255, 165, 0, 0.5);
+  }
+}
+
+.cake {
+  position: relative;
+  width: 250px;
+  height: 200px;
+  top: 50%;
+  left: 50%;
+  margin-left: -125px;
+}
+
+.plate {
+  width: 270px;
+  height: 110px;
+  position: absolute;
+  bottom: -10px;
+  left: -10px;
+  background-color: #ccc;
+  border-radius: 50%;
+  box-shadow: 0 2px 0 #999, 0 4px 0 #999, 0 5px 40px rgba(0, 0, 0, 0.5);
+}
+
+.cake > * {
+  position: absolute;
+}
+
+.layer {
+  position: absolute;
+  display: block;
+  width: 250px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #553c13;
+  box-shadow: 0 2px 0 #604319, 0 4px 0 #4a3410, 0 6px 0 #3d2b0d, 0 8px 0 #392608, 0 10px 0 #372306, 0 12px 0 #352004, 0 14px 0 #331d02, 0 16px 0 #311a00, 0 18px 0 #2f170c, 0 20px 0 #2d150b, 0 22px 0 #2b1309, 0 24px 0 #291108, 0 26px 0 #270f07, 0 28px 0 #250d06, 0 30px 0 #230b05;
+}
+
+.layer-top { top: 0px; }
+.layer-middle { top: 33px; }
+.layer-bottom { top: 66px; }
+
+.icing {
+  top: 2px;
+  left: 5px;
+  background-color: #fff3e6;
+  width: 240px;
+  height: 90px;
+  border-radius: 50%;
+}
+
+.icing:before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  right: 5px;
+  bottom: 6px;
+  left: 5px;
+  background-color: #f5ead8;
+  box-shadow: 0 0 4px #f7eee0, 0 0 4px #f7eee0, 0 0 4px #f7eee0;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.drip {
+  display: block;
+  width: 50px;
+  height: 60px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  background-color: #f0e4d0;
+}
+
+.drip1 { top: 53px; left: 5px; transform: skewY(15deg); height: 48px; width: 40px; }
+.drip2 { top: 69px; left: 181px; transform: skewY(-15deg); }
+.drip3 { top: 54px; left: 90px; width: 80px; border-bottom-left-radius: 40px; border-bottom-right-radius: 40px; }
+
+.candle {
+  background-color: #7B020B;
+  width: 16px;
+  height: 50px;
+  border-radius: 8px / 4px;
+  top: -20px;
+  left: 50%;
+  margin-left: -8px;
+  z-index: 10;
+}
+
+.candle:before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 16px; height: 8px;
+  border-radius: 50%;
+  background-color: #a40513;
+}
+
+.flame {
+  position: absolute;
+  background-color: orange;
+  width: 15px;
+  height: 35px;
+  border-radius: 10px 10px 10px 10px / 25px 25px 10px 10px;
+  top: -34px;
+  left: 50%;
+  margin-left: -7.5px;
+  z-index: 10;
+  box-shadow: 0 0 10px rgba(255, 165, 0, 0.5), 0 0 20px rgba(255, 165, 0, 0.5), 0 0 60px rgba(255, 165, 0, 0.5), 0 0 80px rgba(255, 165, 0, 0.5);
+  transform-origin: 50% 90%;
+  animation: flicker 1s ease-in-out alternate infinite;
+}
+
+.card {
+  position: relative;
+  border: 10px solid #f472b6;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.65), inset 0 0 15px rgba(244, 114, 182, 0.15);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)), url('/images/cover.webp');
+  background-size: cover;
+  background-position: center;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.card p { line-height: 1.6; }
+
+.card .front {
+  position: absolute;
+  top: -10px; left: -10px; right: -10px; bottom: -10px;
+  border: 10px solid #f472b6;
+  border-radius: 16px;
+  backface-visibility: hidden;
+  background-color: #f472b6;
+  transform-style: preserve-3d;
+  transform-origin: 0% 50%;
+  transform: perspective(1000px) rotateY(0deg);
+  transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.card.flipped .front {
+  transform: perspective(1000px) rotateY(-170deg);
+}
+
+.card .back {
+  position: absolute;
+  top: -10px; left: -10px; right: -10px; bottom: -10px;
+  border: 10px solid #f472b6;
+  border-radius: 16px;
+  backface-visibility: visible;
+  transform-style: preserve-3d;
+  transform-origin: 0% 50%;
+  transform: perspective(1000px) rotateY(0deg);
+  transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  background: linear-gradient(135deg, #e8dde8 0%, #d8cad8 100%);
+  box-shadow: inset -5px 0 15px rgba(0, 0, 0, 0.15);
+  z-index: 5;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.card.flipped .back {
+  transform: perspective(1000px) rotateY(-170deg);
+  box-shadow: -10px 15px 30px rgba(0, 0, 0, 0.4), inset 3px 0px 12px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, #e8dde8 0%, #d8cad8 100%);
+}
+
+/* Counter-flip content inside flipped 3D back flap so text/photos read left-to-right */
+.unmirror {
+  transform: scaleX(-1);
+}
+
+/* Purple translucent scrollbar matching reference screenshot */
+.card-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.card-scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+.card-scroll::-webkit-scrollbar-thumb {
+  background: rgba(168, 85, 247, 0.65);
+  border-radius: 10px;
+}
+.card-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(168, 85, 247, 0.9);
+}
+
+.imgset {
+  position: relative;
+  z-index: 1;
+  margin-bottom: -215px;
+}
+
+.imgset img {
+  box-shadow: 0px 6px 11px 7px rgba(0, 0, 0, 0.22);
+  border-radius: 5px;
+}
+
+@keyframes drift {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  25% { transform: translateX(20px) translateY(-40px); }
+  50% { transform: translateX(-15px) translateY(-80px); }
+  75% { transform: translateX(25px) translateY(-50px); }
+}
+
+.heart-drift {
+  animation: drift ease-in-out infinite;
+  position: absolute;
+  opacity: 0.3;
+}
+

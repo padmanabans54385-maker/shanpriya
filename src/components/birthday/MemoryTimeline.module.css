@@ -1,0 +1,65 @@
+/* ---- MemoryTimeline Styles ---- */
+
+.section {
+  position: relative;
+  padding: clamp(4rem, 10vh, 7rem) clamp(1rem, 5vw, 3rem);
+  overflow: hidden;
+  background: linear-gradient(180deg, #0a000f 0%, #050008 100%);
+}
+
+/* ---- Section header ---- */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+  margin-bottom: clamp(3rem, 8vh, 5.5rem);
+  position: relative;
+  z-index: 2;
+}
+
+.heading {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 25px rgba(255, 45, 120, 0.6);
+}
+
+.subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+  color: rgba(255, 255, 255, 0.58);
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
+.headingDivider {
+  width: 90px;
+  height: 2px;
+  margin-top: 0.4rem;
+  background: linear-gradient(90deg, transparent, #ff2d78, #9b27af, transparent);
+  border-radius: 1px;
+}
+
+/* ---- Timeline vertical stack ---- */
+.timeline {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.chapter {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+@media (max-width: 720px) {
+  .section {
+    padding: 3.5rem 1rem;
+  }
+}

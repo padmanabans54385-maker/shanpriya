@@ -1,0 +1,179 @@
+/* ---- MemoryCard Styles ---- */
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Image on left, text on right */
+.cardEven {
+  flex-direction: row;
+}
+
+/* Image on right, text on left */
+.cardOdd {
+  flex-direction: row-reverse;
+}
+
+/* ── Image side ── */
+.imageWrap {
+  position: relative;
+  flex: 0 0 54%;
+  aspect-ratio: 3 / 4;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+
+  /* Neon pink glow border */
+  border: 2.5px solid #ff2d78;
+  box-shadow:
+    0 0 15px #ff2d78,
+    0 0 40px rgba(255, 45, 120, 0.5),
+    0 0 80px rgba(255, 45, 120, 0.2);
+  animation: bdayPulseRing 3s ease-in-out infinite;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.imageWrap:hover .image {
+  transform: scale(1.04);
+}
+
+/* Hover overlay with "View Full" hint */
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.imageWrap:hover .imageOverlay {
+  background: rgba(0, 0, 0, 0.38);
+}
+
+.zoomHint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  text-shadow: 0 0 8px rgba(0,0,0,0.8);
+}
+
+.imageWrap:hover .zoomHint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Corner glow */
+.imageGlow {
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 30px rgba(255, 45, 120, 0.1);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* ── Text side ── */
+.textSide {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.chapterEmoji {
+  font-size: clamp(2rem, 5vw, 3rem);
+  filter: drop-shadow(0 0 12px rgba(255, 45, 120, 0.7));
+  line-height: 1;
+}
+
+.chapterLabel {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: #ff2d78;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(255, 45, 120, 0.5);
+}
+
+.title {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(1.6rem, 4.5vw, 2.6rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+  text-shadow: 0 0 20px rgba(255, 45, 120, 0.35);
+}
+
+.titleUnderline {
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(90deg, #ff2d78, transparent);
+  border-radius: 1px;
+}
+
+.description {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.9rem, 2.2vw, 1.02rem);
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.heartRow {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 0.3rem;
+}
+
+/* ── Mobile: always stack vertically ── */
+@media (max-width: 720px) {
+  .card,
+  .cardEven,
+  .cardOdd {
+    flex-direction: column;
+  }
+
+  .imageWrap {
+    flex: none;
+    width: 88%;
+    aspect-ratio: 4 / 5;
+  }
+
+  .textSide {
+    width: 88%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .titleUnderline {
+    margin: 0 auto;
+  }
+
+  .heartRow {
+    justify-content: center;
+  }
+}

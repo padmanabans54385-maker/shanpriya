@@ -1,0 +1,54 @@
+/* ---- MemoryQuote Styles ---- */
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  padding: clamp(2.5rem, 6vh, 4rem) 1.5rem;
+  text-align: center;
+}
+
+.emojiNode {
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  filter: drop-shadow(0 0 10px rgba(255, 45, 120, 0.7));
+}
+
+.quoteRow {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  width: 100%;
+  max-width: 700px;
+}
+
+.line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 45, 120, 0.4), transparent);
+}
+
+.quote {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: clamp(1rem, 3.2vw, 1.4rem);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+  line-height: 1.5;
+  white-space: nowrap;
+  text-shadow: 0 0 20px rgba(255, 45, 120, 0.25);
+}
+
+@media (max-width: 600px) {
+  .quoteRow {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  .line {
+    width: 60%;
+    height: 1px;
+  }
+  .quote {
+    white-space: normal;
+  }
+}
