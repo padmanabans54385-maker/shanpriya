@@ -83,7 +83,7 @@ export default function PhotosScreen({ onNext }) {
             loop
             modules={[EffectCards, Autoplay]}
             onSwiper={(sw) => (swiperRef.current = sw)}
-            style={{ width: "min(270px, 72vw)", height: "clamp(330px, 95vw, 420px)" }}
+            style={{ width: "min(250px, 68vw)", height: "clamp(310px, 88vw, 400px)" }}
           >
             {allMedia.map((item, i) => (
               <SwiperSlide key={i} style={cardSlideStyle}>
