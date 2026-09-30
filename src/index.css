@@ -211,7 +211,7 @@ button {
 
 .flame {
   position: absolute;
-  background-color: orange;
+  background: radial-gradient(ellipse at 60% 80%, #fff 0%, #ffe033 20%, #ff9500 50%, #ff4500 100%);
   width: 15px;
   height: 35px;
   border-radius: 10px 10px 10px 10px / 25px 25px 10px 10px;
@@ -219,7 +219,12 @@ button {
   left: 50%;
   margin-left: -7.5px;
   z-index: 10;
-  box-shadow: 0 0 10px rgba(255, 165, 0, 0.5), 0 0 20px rgba(255, 165, 0, 0.5), 0 0 60px rgba(255, 165, 0, 0.5), 0 0 80px rgba(255, 165, 0, 0.5);
+  box-shadow:
+    0 0 6px 2px #fff,
+    0 0 14px 4px #ffe033,
+    0 0 30px 8px #ff9500,
+    0 0 55px 14px #ff4500,
+    0 0 90px 20px rgba(255, 80, 0, 0.6);
   transform-origin: 50% 90%;
   animation: flicker 1s ease-in-out alternate infinite;
 }

@@ -80,6 +80,19 @@ export default function CountdownScreen({ visible, onCelebration }) {
   const [expired, setExpired] = useState(false);
   const [confetti, setConfetti] = useState(false);
   const expiredRef = useRef(false);
+  const bgAudioRef = useRef(null);
+
+  // Pre-load bg.mp3 — plays once on countdown page only, stops on unmount
+  useEffect(() => {
+    const audio = new Audio("/audio/bg.mp3");
+    audio.loop = false;
+    bgAudioRef.current = audio;
+    return () => {
+      audio.pause();
+      audio.currentTime = 0;
+      audio.src = "";
+    };
+  }, []);
 
   // Fire confetti when screen becomes visible
   useEffect(() => {
@@ -98,9 +111,19 @@ export default function CountdownScreen({ visible, onCelebration }) {
         expiredRef.current = true;
         setExpired(true);
         fireMassiveCelebration();
-        // Auto transition after 3s celebration burst
+        // Play bg.mp3 once on countdown completion
+        if (bgAudioRef.current) {
+          bgAudioRef.current.play().catch(() => {});
+        }
+        // Auto transition after 3s celebration burst — stop audio before navigating
         if (onCelebration) {
-          setTimeout(() => onCelebration(), 3000);
+          setTimeout(() => {
+            if (bgAudioRef.current) {
+              bgAudioRef.current.pause();
+              bgAudioRef.current.currentTime = 0;
+            }
+            onCelebration();
+          }, 4000);
         }
       }
     }, 1000);

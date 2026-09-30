@@ -40,7 +40,8 @@ export default function LoaderScreen({ onDone }) {
                 className="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-fuchsia-400 mt-14 text-center py-1.5"
                 animate={{ opacity: [0.8, 1, 0.8] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            >
+            ><br></br>
+            <br></br>
                 Crafting your special moment...
             </motion.h1>
         </div>

@@ -34,7 +34,7 @@
 //  🗓️  STEP 1 — SET THE BIRTHDAY DATE
 // ================================================================
 
-export const birthdayDate = new Date("2026-10-09T00:00:00");
+export const birthdayDate = new Date("2026-09-30T00:00:00");
 //                                    ^^^^ ^^  ^^  ^^^^^^^^
 //                                    Year Mo  Day  HH:MM:SS
 
@@ -53,7 +53,7 @@ export const photos = [
 ];
 
 // How many seconds each photo is shown (1000 = 1 second)
-export const photoDuration = 3000;  // ← 3000 = 3 seconds
+export const photoDuration = 4000;  // ← 4000 = 4 seconds
 
 // ================================================================
 //  ✏️  STEP 3 — CUSTOMIZE ALL TEXT
@@ -120,7 +120,7 @@ export const pageDescription =
 export const firstHeading = "A Mental was born today, 22 years ago!";
 export const firstSubtext = "Yes, it’s YOU 😂 ! A little surprise awaits...";
 
-export const NAME = "la Priya Eruma !";
+export const NAME = "la Shan!";
 
 export const photoScreenHeading = "Some Sweet Moments With You";
 
@@ -146,12 +146,14 @@ export const videos = [
 
 export const messageScreenHeading = "A Special Message";
 
-export const specialMessage = `Happy Birthday la Priya 💙🎂✨
+export const specialMessage = `Happy Birthday la Shan 💙🎂✨
 Eppavum happy ah iru 💗... Inga MCA la enakku kedaicha best friend neethaan 🤗💞
 
 Innum konjam munnadiye pesi irundha nalla irundhirukkum la… 😅❤️ Nee enakku eppavum oru nalla friend. Apo apo nee oru maathiri pannitu enna neraya tension aakiduva 😂😭… Aana enna irundhaalum, unna maathiri oru ponna friend ah kedaichadhukku I’m very lucky da 💗
 
 Thanks for coming into my life! ✨ Next year la irundhu unoda career la nalla focus pannu. Kandippa unakku oru beautiful life irukkum da ❤️🌸
+
+Onnoda odamba nalla pathukko la ❤️ Correct-ah time-ku sapdu 🍛, apram nalla thoongu 😴💤 Romba neram mulichittu irukaadha… apram idhu pinnadi problem aagalam la 🥺. Naan sonna kelu nu namburen 🤗. Namma health-ah vida edhuvum mukkiyam illa la ❤️. So, stay healthy and happy forever! 🥰🌸💙
 
 Naan paathadhula romba strong-aana ponnu nee dhaan la 💪🏻❤️ Adhe maathiri eppavum iru… Yedhu nadandhaalum strong ah face pannu. ✨
 

@@ -70,7 +70,7 @@ export default function BalloonGameScreen({ onNext }) {
                 startVelocity: 40,
                 origin: { y: 0.6 },
                 ticks: 200,
-                colors: ["#FF3CAC", "#F687B3", "#D8B4FE", "#C084FC", "#F472B6"]
+                colors: ["#FF3CAC", "#FFD700", "#00D4FF", "#BF5FFF", "#FF8C00", "#FF2D78", "#7CFC00", "#FFFFFF", "#F687B3"]
             })
         }
     }, [allPopped])
@@ -87,7 +87,7 @@ export default function BalloonGameScreen({ onNext }) {
             startVelocity: 30,
             origin: { y: 0.7 },
             ticks: 110,
-            colors: ["#FF3CAC", "#F687B3", "#D8B4FE", "#C084FC", "#F472B6"]
+            colors: ["#FF3CAC", "#FFD700", "#00D4FF", "#BF5FFF", "#FF8C00", "#FF2D78", "#7CFC00", "#FFFFFF", "#F687B3"]
         })
     }
 
@@ -184,7 +184,8 @@ export default function BalloonGameScreen({ onNext }) {
                             initial={{ opacity: 0, scale: 0.8, y: 15 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             transition={{ duration: 0.6, ease: "easeOut" }}
-                        >
+                        ><br></br>
+                        <br></br>
                             <GradientButton onClick={onNext}>
                                 Next
                                 <ArrowRight size={22} className="ml-1" />

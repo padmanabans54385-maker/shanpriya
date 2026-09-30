@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import GradientButton from "./GradientButton"
 import { messageScreenHeading, specialMessage } from "@/data";
@@ -8,6 +8,18 @@ import { ArrowRight } from "lucide-react";
 
 export default function MessageScreen({ onNext }) {
     const [flipped, setFlipped] = useState(false);
+
+    // Play mes.mp3 once when MessageScreen appears
+    useEffect(() => {
+        const audio = new Audio("/audio/mes.mp3");
+        audio.loop = false;
+        audio.play().catch(() => {});
+
+        return () => {
+            audio.pause();
+            audio.currentTime = 0;
+        };
+    }, []);
 
     return (
         <div className="px-4 md:px-6 py-6 md:py-10 text-center flex flex-col items-center justify-center min-h-[85vh]">

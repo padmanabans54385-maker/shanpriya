@@ -1,31 +1,68 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Heart, Mail, ChevronLeft, ChevronRight } from "lucide-react";
-import GradientButton from "./GradientButton";
-import { surprisePhotos, photoScreenHeading, videos } from "../../data";
+import { useEffect, useRef } from "react"
+import { motion } from "framer-motion"
+import { Swiper, SwiperSlide } from "swiper/react"
+import { Autoplay, EffectCards } from "swiper/modules"
+import "swiper/css"
+import "swiper/css/effect-cards"
+import { Heart, Mail } from "lucide-react"
+import GradientButton from "./GradientButton"
+import { surprisePhotos as photos, photoScreenHeading, videos } from "../../data"
+
+// Card inner styles — shared
+const cardSlideStyle = {
+  borderRadius: "22px",
+  border: "3px solid #f43f8a",
+  boxShadow: "0 0 22px 5px rgba(244,63,138,0.6), inset 0 0 10px rgba(244,63,138,0.15)",
+  overflow: "hidden",           // THIS clips content to the rounded corners
+  background: "linear-gradient(135deg, rgba(244,114,182,0.45), rgba(168,85,247,0.45))",
+}
+
+const cardInnerStyle = {
+  position: "relative",
+  height: "100%",
+  width: "100%",
+  padding: "10px",
+  boxSizing: "border-box",
+}
+
+const mediaStyle = {
+  width: "100%",
+  height: "100%",
+  objectFit: "cover",
+  borderRadius: "14px",
+  display: "block",
+}
 
 export default function PhotosScreen({ onNext }) {
-  // Combine photos and videos into unified media items
-  const mediaItems = [
-    ...surprisePhotos.map((src, i) => ({ type: "image", src, id: `img-${i}` })),
-    ...videos.map((src, i) => ({ type: "video", src, id: `vid-${i}` })),
-  ];
+  const swiperRef = useRef(null)
+  const allMedia = [
+    ...photos.map((src) => ({ type: "image", src })),
+    ...videos.map((src) => ({ type: "video", src })),
+  ]
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+  // Play gall.mp3 for 15 seconds when PhotosScreen appears
+  useEffect(() => {
+    let timer;
+    const audio = new Audio("/audio/gall.mp3");
+    audio.loop = false;
+    audio.play().catch(() => {});
 
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % mediaItems.length);
-  };
+    timer = setTimeout(() => {
+      audio.pause();
+      audio.currentTime = 0;
+    }, 15000);
 
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + mediaItems.length) % mediaItems.length);
-  };
-
-  const currentItem = mediaItems[currentIndex];
+    return () => {
+      clearTimeout(timer);
+      audio.pause();
+      audio.currentTime = 0;
+    };
+  }, []);
 
   return (
-    <div className="px-4 md:px-6 py-10 pt-20 text-center">
-      <div className="text-center mb-6">
+    <div className="px-4 md:px-6 py-10 pt-20">
+      {/* Heading */}
+      <div className="text-center mb-8">
         <motion.h2
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -34,78 +71,83 @@ export default function PhotosScreen({ onNext }) {
         >
           {photoScreenHeading}
         </motion.h2>
-        <p className="text-sm text-rose-100/90 mt-1">(Pathu and Vaishu 😇🫂💙)</p>
+
       </div>
 
-      <div className="relative flex flex-col items-center justify-center min-h-[440px]">
-        {/* Nav Controls */}
-        <div className="relative w-[300px] h-[380px] md:w-[360px] md:h-[440px] flex items-center justify-center">
-          <button
-            onClick={handlePrev}
-            className="absolute -left-6 md:-left-12 z-30 p-2 rounded-full bg-pink-500/30 text-white border border-pink-400/50 backdrop-blur-md hover:bg-pink-500/60 transition-all"
-            aria-label="Previous"
+      {/* Swiper card stack */}
+      <br></br>
+      <br></br>
+      <div className="flex justify-center">
+        <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
+          <Swiper
+            effect="cards"
+            grabCursor
+            loop
+            modules={[EffectCards, Autoplay]}
+            onSwiper={(sw) => (swiperRef.current = sw)}
+            className="w-[280px] h-[370px] md:w-[340px] md:h-[430px]"
           >
-            <ChevronLeft size={24} />
-          </button>
-
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentItem.id}
-              initial={{ opacity: 0, scale: 0.9, rotate: -3 }}
-              animate={{ opacity: 1, scale: 1, rotate: 0 }}
-              exit={{ opacity: 0, scale: 0.9, rotate: 3 }}
-              transition={{ duration: 0.4 }}
-              className="h-full w-full rounded-3xl p-2 bg-gradient-to-br from-pink-400/50 via-rose-400/50 to-purple-400/50 backdrop-blur-sm shadow-2xl"
-            >
-              <div className="relative h-full w-full rounded-xl overflow-hidden bg-black/40">
-                {/* Top corner hearts */}
-                <Heart className="absolute top-2 left-2 text-xl z-20 text-pink-500 fill-pink-500 opacity-90" />
-                <Heart className="absolute top-2 right-2 text-xl z-20 text-pink-500 fill-pink-500 opacity-90" />
-
-                {currentItem.type === "image" ? (
-                  <img
-                    src={currentItem.src}
-                    alt={`Memory ${currentIndex + 1}`}
-                    className="h-full w-full rounded-2xl object-cover"
+            {allMedia.map((item, i) => (
+              <SwiperSlide key={i} style={cardSlideStyle}>
+                <div style={cardInnerStyle}>
+                  {/* Hearts */}
+                  <Heart
+                    style={{ position: "absolute", top: 14, left: 14, zIndex: 10, color: "#ec4899", fill: "#ec4899", opacity: 0.9 }}
+                    size={20}
                   />
-                ) : (
-                  <video
-                    src={currentItem.src}
-                    controls
-                    playsInline
-                    className="h-full w-full rounded-2xl object-cover"
+                  <Heart
+                    style={{ position: "absolute", top: 14, right: 14, zIndex: 10, color: "#ec4899", fill: "#ec4899", opacity: 0.9 }}
+                    size={20}
                   />
-                )}
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-black/10 to-pink-100/10 pointer-events-none rounded-2xl" />
-              </div>
-            </motion.div>
-          </AnimatePresence>
 
-          <button
-            onClick={handleNext}
-            className="absolute -right-6 md:-right-12 z-30 p-2 rounded-full bg-pink-500/30 text-white border border-pink-400/50 backdrop-blur-md hover:bg-pink-500/60 transition-all"
-            aria-label="Next"
-          >
-            <ChevronRight size={24} />
-          </button>
-        </div>
+                  {/* Media */}
+                  {item.type === "image" ? (
+                    <img src={item.src} alt={`Memory ${i + 1}`} style={mediaStyle} />
+                  ) : (
+                    <video
+                      src={item.src}
+                      controls
+                      playsInline
+                      style={mediaStyle}
+                      onTouchStart={() => {
+                        if (swiperRef.current) swiperRef.current.allowTouchMove = false
+                      }}
+                      onTouchEnd={() => {
+                        if (swiperRef.current) swiperRef.current.allowTouchMove = true
+                      }}
+                    />
+                  )}
 
-        {/* Counter Indicator */}
-        <div className="mt-4 text-xs text-pink-300 font-semibold tracking-widest uppercase">
-          {currentIndex + 1} / {mediaItems.length}
-        </div>
+                  {/* Subtle shimmer */}
+                  <div
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      borderRadius: "14px",
+                      background: "linear-gradient(to top right, transparent, rgba(0,0,0,0.08), rgba(255,209,220,0.08))",
+                      pointerEvents: "none",
+                    }}
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </motion.div>
       </div>
 
+      {/* Button */}
+      <br></br>
+      <br></br>
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1, transition: { delay: 0.5 } }}
         transition={{ duration: 1.4, ease: "easeOut" }}
-        className="mt-8 flex justify-center"
+        className="mt-16 pb-6 flex justify-center"
       >
         <GradientButton onClick={onNext}>
           <Mail size={20} className="mt-0.5" /> Open My Message
         </GradientButton>
       </motion.div>
     </div>
-  );
+  )
 }

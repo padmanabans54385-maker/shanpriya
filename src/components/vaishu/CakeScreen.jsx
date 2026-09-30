@@ -5,7 +5,7 @@ import GradientButton from "./GradientButton"
 import { NAME } from "../../data"
 import { ArrowRight, Flame, WandSparkles } from "lucide-react"
 
-const confettiColors = ["#FF3CAC", "#F687B3", "#D8B4FE", "#C084FC", "#F472B6"];
+const confettiColors = ["#FF3CAC", "#FFD700", "#00D4FF", "#BF5FFF", "#FF8C00", "#FF2D78", "#7CFC00", "#FFFFFF", "#F687B3"];
 
 export default function CakeScreen({ onNext, onDecorate }) {
   const [decorated, setDecorated] = useState(false)
@@ -22,6 +22,12 @@ export default function CakeScreen({ onNext, onDecorate }) {
   const lightCandle = () => {
     if (lit) return
     setLit(true)
+    // Play wish.mp3 once on candle light
+    try {
+      const audio = new Audio("/audio/wish.mp3")
+      audio.loop = false
+      audio.play().catch(() => {})
+    } catch (_) {}
     setTimeout(() => burst(), 500);
     setTimeout(() => burst(), 1000);
   }
@@ -42,7 +48,7 @@ export default function CakeScreen({ onNext, onDecorate }) {
         <AnimatePresence>
           {lit && (
             <motion.h1
-              className="text-4xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-300 via-fuchsia-300 to-pink-300 leading-tight px-4 tracking-wide"
+              className="text-4xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-fuchsia-400 to-purple-400 leading-tight px-4 tracking-wide"
               style={{ filter: "drop-shadow(0 0 25px rgba(255,105,180,0.6))" }}
               initial={{ opacity: 0, y: -20, scale: 0.85 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}

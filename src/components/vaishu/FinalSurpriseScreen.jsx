@@ -16,7 +16,7 @@ export default function FinalSurpriseScreen({ onReplay }) {
             startVelocity: 55,
             gravity: 1.1,
             origin: { y: 0.6 },
-            colors: ["#FF3CAC", "#F687B3", "#D8B4FE", "#C084FC", "#F472B6"]
+            colors: ["#FF3CAC", "#FFD700", "#00D4FF", "#BF5FFF", "#FF8C00", "#FF2D78", "#7CFC00", "#FFFFFF", "#F687B3"]
         });
     }
 
