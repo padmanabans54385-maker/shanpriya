@@ -115,11 +115,17 @@ export default function BalloonGameScreen({ onNext }) {
                 className="relative h-[440px] md:h-[480px] max-h-[52vh] w-full overflow-hidden rounded-3xl backdrop-blur-xl bg-gradient-to-b from-pink-950/40 via-fuchsia-950/35 to-purple-950/40 border border-pink-400/30 shadow-[0_0_30px_rgba(244,114,182,0.15)] flex flex-col items-center justify-between"
             >
                 {!allPopped ? (
-                    <div className="pt-5 text-pink-100 font-semibold text-xl md:text-2xl tracking-wide drop-shadow-md z-30">
+                    <div
+                        style={{ fontSize: "clamp(20px, 6vw, 28px)" }}
+                        className="pt-4 px-2 text-pink-100 font-semibold tracking-wide drop-shadow-md z-30 text-center"
+                    >
                         {balloonScreenHeading}
                     </div>
                 ) : (
-                    <div className="pt-5 text-pink-200 font-bold text-2xl md:text-3xl tracking-wider drop-shadow-[0_0_15px_rgba(255,105,180,0.6)] z-30 animate-pulse">
+                    <div
+                        style={{ fontSize: "clamp(22px, 6.5vw, 30px)" }}
+                        className="pt-4 px-2 text-pink-200 font-bold tracking-wider drop-shadow-[0_0_15px_rgba(255,105,180,0.6)] z-30 animate-pulse text-center"
+                    >
                         {allPoppedMessage}
                     </div>
                 )}
@@ -138,10 +144,11 @@ export default function BalloonGameScreen({ onNext }) {
                             initial={{ opacity: 0, scale: 0.5 }}
                             animate={{
                                 opacity: popped.includes(b.id) ? 1 : 0,
-                                scale: popped.includes(b.id) ? 1.2 : 0.5,
+                                scale: popped.includes(b.id) ? 1.15 : 0.5,
                             }}
                             transition={{ type: "spring", stiffness: 200, damping: 12 }}
-                            className="text-2xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-300 via-fuchsia-300 to-amber-200 drop-shadow-[0_0_15px_rgba(244,114,182,0.8)]"
+                            style={{ fontSize: "clamp(20px, 7vw, 36px)" }}
+                            className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-300 via-fuchsia-300 to-amber-200 drop-shadow-[0_0_15px_rgba(244,114,182,0.8)]"
                         >
                             {WORDS[i]}
                         </motion.span>
@@ -230,7 +237,7 @@ function Balloon({ data, onPop, popped, registerKnot }) {
             >
                 {/* Balloon Body */}
                 <div
-                    className="w-20 h-26 md:w-24 md:h-32 rounded-[50%_50%_45%_45%/55%_55%_45%_45%] relative shadow-lg"
+                    className="w-16 h-22 sm:w-20 sm:h-26 md:w-24 md:h-32 rounded-[50%_50%_45%_45%/55%_55%_45%_45%] relative shadow-lg"
                     style={{
                         background: `radial-gradient(60% 60% at 35% 35%, rgba(255,255,255,0.7) 0 24%, transparent 25%), linear-gradient(145deg, ${color}, rgba(255,255,255,0.25))`,
                         boxShadow: `0 12px 25px rgba(0,0,0,0.3), inset -6px -10px 18px rgba(0,0,0,0.2), 0 0 15px ${color}66`,

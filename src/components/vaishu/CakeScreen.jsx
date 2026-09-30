@@ -42,14 +42,17 @@ export default function CakeScreen({ onNext, onDecorate }) {
   }
 
   return (
-    <div className="px-4 md:px-6 py-6 md:py-10 text-center relative flex flex-col items-center justify-center min-h-[75vh]">
+    <div className="px-4 py-4 sm:py-8 text-center relative flex flex-col items-center justify-center min-h-[75vh]">
       {/* Title placed clearly ABOVE the cake */}
-      <div className="min-h-[90px] md:min-h-[110px] flex items-center justify-center mb-4 z-20">
+      <div className="min-h-[70px] sm:min-h-[90px] flex items-center justify-center mb-3 z-20">
         <AnimatePresence>
           {lit && (
             <motion.h1
-              className="text-4xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-fuchsia-400 to-purple-400 leading-tight px-4 tracking-wide"
-              style={{ filter: "drop-shadow(0 0 25px rgba(255,105,180,0.6))" }}
+              className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-fuchsia-400 to-purple-400 leading-tight px-2 tracking-wide"
+              style={{
+                fontSize: "clamp(26px, 8vw, 42px)",
+                filter: "drop-shadow(0 0 25px rgba(255,105,180,0.6))",
+              }}
               initial={{ opacity: 0, y: -20, scale: 0.85 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.8, ease: "easeOut" }}

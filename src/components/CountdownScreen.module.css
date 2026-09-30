@@ -57,7 +57,7 @@
 /* Bold white heading — matching reference font style */
 .heading {
   font-family: 'Times New Roman', Times, serif;
-  font-size: clamp(1.5rem, 4.5vw, 2.6rem);
+  font-size: clamp(26px, 8vw, 40px);
   font-weight: 700;
   color: #fff;
   line-height: 1.25;
@@ -78,11 +78,11 @@
 /* Italic subtitle in white */
 .subHeading {
   font-family: 'Times New Roman', Times, serif;
-  font-size: clamp(0.85rem, 2.5vw, 1.15rem);
+  font-size: clamp(14px, 4vw, 18px);
   color: rgba(255, 255, 255, 0.75);
   font-style: italic;
   max-width: 500px;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 /* ---- Timer box with pink neon border ---- */

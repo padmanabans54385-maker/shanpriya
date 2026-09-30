@@ -185,13 +185,13 @@ export default function CountdownScreen({ visible, onCelebration }) {
                   onClick={onCelebration}
                   style={{
                     marginTop: "1.5rem",
-                    width: "clamp(280px, 85vw, 360px)",
-                    height: "58px",
-                    padding: "0 2rem",
-                    borderRadius: "9999px",
+                    width: "min(320px, 90%)",
+                    minHeight: "52px",
+                    padding: "14px 24px",
+                    borderRadius: "14px",
                     background: "linear-gradient(135deg, #f43f5e, #9333ea)",
                     color: "#fff",
-                    fontSize: "1.25rem",
+                    fontSize: "clamp(14px, 4vw, 17px)",
                     fontWeight: 700,
                     border: "1px solid rgba(255, 255, 255, 0.35)",
                     cursor: "pointer",

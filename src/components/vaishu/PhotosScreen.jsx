@@ -10,7 +10,7 @@ import { surprisePhotos as photos, photoScreenHeading, videos, gallAudio, gallAu
 
 // Card inner styles — shared
 const cardSlideStyle = {
-  borderRadius: "22px",
+  borderRadius: "20px",
   border: "3px solid #f43f8a",
   boxShadow: "0 0 22px 5px rgba(244,63,138,0.6), inset 0 0 10px rgba(244,63,138,0.15)",
   overflow: "hidden",           // THIS clips content to the rounded corners
@@ -60,24 +60,22 @@ export default function PhotosScreen({ onNext }) {
   }, []);
 
   return (
-    <div className="px-4 md:px-6 py-10 pt-20">
+    <div className="px-4 py-6 sm:py-10 pt-10 sm:pt-16">
       {/* Heading */}
-      <div className="text-center mb-8">
+      <div className="text-center mb-5 sm:mb-8">
         <motion.h2
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-3xl md:text-5xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-fuchsia-400 to-purple-400 drop-shadow"
+          style={{ fontSize: "clamp(22px, 6.5vw, 32px)" }}
+          className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-fuchsia-400 to-purple-400 drop-shadow px-2"
         >
           {photoScreenHeading}
         </motion.h2>
-
       </div>
 
       {/* Swiper card stack */}
-      <br></br>
-      <br></br>
-      <div className="flex justify-center">
+      <div className="flex justify-center mt-3 sm:mt-6">
         <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
           <Swiper
             effect="cards"
@@ -85,7 +83,7 @@ export default function PhotosScreen({ onNext }) {
             loop
             modules={[EffectCards, Autoplay]}
             onSwiper={(sw) => (swiperRef.current = sw)}
-            className="w-[280px] h-[370px] md:w-[340px] md:h-[430px]"
+            style={{ width: "min(320px, 85vw)", height: "clamp(340px, 110vw, 430px)" }}
           >
             {allMedia.map((item, i) => (
               <SwiperSlide key={i} style={cardSlideStyle}>
@@ -136,13 +134,11 @@ export default function PhotosScreen({ onNext }) {
       </div>
 
       {/* Button */}
-      <br></br>
-      <br></br>
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1, transition: { delay: 0.5 } }}
         transition={{ duration: 1.4, ease: "easeOut" }}
-        className="mt-16 pb-6 flex justify-center"
+        className="mt-8 sm:mt-12 pb-6 flex justify-center w-full"
       >
         <GradientButton onClick={onNext}>
           <Mail size={20} className="mt-0.5" /> {openMessageButtonLabel}
