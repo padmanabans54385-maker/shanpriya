@@ -8,7 +8,7 @@
 //  🗓️  STEP 1 — SET THE BIRTHDAY DATE
 // ================================================================
 
-export const birthdayDate = new Date("2026-09-09T00:00:00");
+export const birthdayDate = new Date("2026-10-09T00:00:00");
 
 // ================================================================
 //  📸  IMAGES, VIDEOS, GIFS & AUDIO ASSETS
@@ -110,7 +110,7 @@ export const lightCandleButtonLabel = "Light the Candle";
 export const popBalloonsButtonLabel = "Pop the Balloons";
 
 // ── Screen 7: Balloon Game Screen ───────────────────────────────
-export const balloonWords = ["Treat", "Mukkiyam", "la", "Eruma"];
+export const balloonWords = ["Treat", "Vachiru", "la", "Eruma"];
 export const balloonScreenHeading = "Pop all 4 balloons 🎈";
 export const allPoppedMessage = "Yay! You popped them all! 😂😂";
 export const balloonNextButtonLabel = "Next";
