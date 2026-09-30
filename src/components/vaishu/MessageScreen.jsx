@@ -3,15 +3,15 @@
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import GradientButton from "./GradientButton"
-import { messageScreenHeading, specialMessage } from "@/data";
+import { messageScreenHeading, specialMessage, coverImage, coverButtonLabel, mesAudio, messageNextButtonLabel } from "../../data";
 import { ArrowRight } from "lucide-react";
 
 export default function MessageScreen({ onNext }) {
     const [flipped, setFlipped] = useState(false);
 
-    // Play mes.mp3 once when MessageScreen appears
+    // Play mesAudio once when MessageScreen appears
     useEffect(() => {
-        const audio = new Audio("/audio/mes.mp3");
+        const audio = new Audio(mesAudio);
         audio.loop = false;
         audio.play().catch(() => {});
 
@@ -51,7 +51,7 @@ export default function MessageScreen({ onNext }) {
                     <div className="front w-full h-full rounded-xl overflow-hidden bg-white p-2.5 flex flex-col items-center justify-center relative z-20">
                         <div className="relative w-full h-full rounded-lg overflow-hidden flex items-center justify-center">
                             <img
-                                src="/images/cover.webp"
+                                src={coverImage}
                                 alt="Card Cover"
                                 className="w-full h-full object-cover rounded-lg"
                             />
@@ -60,7 +60,7 @@ export default function MessageScreen({ onNext }) {
                                     style={{ fontFamily: "'Dancing Script', 'Pacifico', cursive" }}
                                     className="bg-gradient-to-r from-pink-500 to-rose-500 text-white font-bold px-7 py-2 rounded-full shadow-lg text-lg sm:text-xl tracking-wider whitespace-nowrap"
                                 >
-                                    Tap to Open
+                                    {coverButtonLabel}
                                 </p>
                             </div>
                         </div>
@@ -95,7 +95,7 @@ export default function MessageScreen({ onNext }) {
                     }}
                 >
                     <span style={{ fontFamily: "'Dancing Script', cursive" }} className="text-xl font-bold">
-                        Next
+                        {messageNextButtonLabel}
                     </span>
                     <ArrowRight size={22} className="ml-1" />
                 </GradientButton>

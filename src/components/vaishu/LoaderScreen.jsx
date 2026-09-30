@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
+import { loaderHeading } from "../../data"
 
 export default function LoaderScreen({ onDone }) {
     const [count, setCount] = useState(3)
@@ -42,7 +43,7 @@ export default function LoaderScreen({ onDone }) {
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             ><br></br>
             <br></br>
-                Crafting your special moment...
+                {loaderHeading}
             </motion.h1>
         </div>
     )

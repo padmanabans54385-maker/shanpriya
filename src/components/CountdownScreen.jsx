@@ -9,6 +9,8 @@ import {
   timerLabels,
   timerSeparator,
   birthdayMessage,
+  bgAudio,
+  openWishButtonLabel,
 } from "../data";
 import styles from "./CountdownScreen.module.css";
 import ConfettiEffect from "./ConfettiEffect";
@@ -84,7 +86,7 @@ export default function CountdownScreen({ visible, onCelebration }) {
 
   // Pre-load bg.mp3 — plays once on countdown page only, stops on unmount
   useEffect(() => {
-    const audio = new Audio("/audio/bg.mp3");
+    const audio = new Audio(bgAudio);
     audio.loop = false;
     bgAudioRef.current = audio;
     return () => {
@@ -201,7 +203,7 @@ export default function CountdownScreen({ visible, onCelebration }) {
                     gap: "0.5rem",
                   }}
                 >
-                  Open Special Wish & Memories ❤️
+                  {openWishButtonLabel}
                 </button>
               )}
             </motion.div>

@@ -1,4 +1,4 @@
-import { firstHeading, firstSubtext } from "../../data"
+import { firstHeading, firstSubtext, introGif, introButtonLabel } from "../../data"
 import GradientButton from "./GradientButton"
 import { Gift } from "lucide-react"
 
@@ -7,7 +7,7 @@ export default function IntroScreen({ onNext, onStartMusic }) {
         <div className="py-10 md:py-14 text-center">
             <div className="flex flex-col items-center gap-6">
                 <img
-                    src="/gifs/intro.gif"
+                    src={introGif}
                     alt="Cute birthday animation topper"
                     className="w-[140px] md:w-[180px] object-cover"
                 />
@@ -30,7 +30,7 @@ export default function IntroScreen({ onNext, onStartMusic }) {
                         }}
                     >
                         <Gift size={20}/>
-                        Start the surprise
+                        {introButtonLabel}
                     </GradientButton>
                 </div>
             </div>

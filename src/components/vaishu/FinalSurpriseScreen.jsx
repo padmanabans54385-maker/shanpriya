@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import confetti from "canvas-confetti"
 import GradientButton from "./GradientButton"
 import { RotateCw } from "lucide-react"
-import { finalScreenHeading, overlayMessage, overlayText } from "../../data"
+import { finalScreenHeading, overlayMessage, overlayText, giftGif, surpriseGif, tapGiftHint, replayButtonLabel } from "../../data"
 
 export default function FinalSurpriseScreen({ onReplay }) {
     const [opened, setOpened] = useState(false)
@@ -44,7 +44,7 @@ export default function FinalSurpriseScreen({ onReplay }) {
                     }}
                 >
                     <img
-                        src="/gifs/gift.gif"
+                        src={giftGif}
                         alt="Gift box"
                         className="h-48 w-48 md:h-56 md:w-56 object-contain mx-auto drop-shadow-[0_0_25px_rgba(244,114,182,0.5)]"
                     />
@@ -55,7 +55,7 @@ export default function FinalSurpriseScreen({ onReplay }) {
                     animate={{ opacity: 1, y: 0, transition: { delay: 0.8 } }}
                     transition={{ duration: 1 }}
                     className="text-pretty text-xl md:text-2xl font-semibold text-pink-200/90 drop-shadow">
-                    Tap the gift 🎁
+                    {tapGiftHint}
                 </motion.div>
             </div>
 
@@ -79,7 +79,7 @@ export default function FinalSurpriseScreen({ onReplay }) {
                             {/* Centered GIF */}
                             <div className="w-full flex justify-center items-center">
                                 <img
-                                    src="/gifs/surprise.gif"
+                                    src={surpriseGif}
                                     alt="Surprise"
                                     className="w-52 sm:w-64 md:w-80 h-auto object-contain mx-auto drop-shadow-[0_0_25px_rgba(255,255,255,0.4)] block"
                                 />
@@ -98,7 +98,7 @@ export default function FinalSurpriseScreen({ onReplay }) {
                             {/* Centered Replay Button with ample bottom margin & padding */}
                             <div className="pt-6 pb-4 flex justify-center w-full">
                                 <GradientButton onClick={onReplay}>
-                                    <RotateCw size={22} className="mr-2" /> Replay
+                                    <RotateCw size={22} className="mr-2" /> {replayButtonLabel}
                                 </GradientButton>
                             </div>
                         </motion.div>

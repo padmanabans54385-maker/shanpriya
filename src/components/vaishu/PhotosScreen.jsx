@@ -6,7 +6,7 @@ import "swiper/css"
 import "swiper/css/effect-cards"
 import { Heart, Mail } from "lucide-react"
 import GradientButton from "./GradientButton"
-import { surprisePhotos as photos, photoScreenHeading, videos } from "../../data"
+import { surprisePhotos as photos, photoScreenHeading, videos, gallAudio, gallAudioDuration, openMessageButtonLabel } from "../../data"
 
 // Card inner styles — shared
 const cardSlideStyle = {
@@ -40,17 +40,17 @@ export default function PhotosScreen({ onNext }) {
     ...videos.map((src) => ({ type: "video", src })),
   ]
 
-  // Play gall.mp3 for 15 seconds when PhotosScreen appears
+  // Play gallAudio for duration when PhotosScreen appears
   useEffect(() => {
     let timer;
-    const audio = new Audio("/audio/gall.mp3");
+    const audio = new Audio(gallAudio);
     audio.loop = false;
     audio.play().catch(() => {});
 
     timer = setTimeout(() => {
       audio.pause();
       audio.currentTime = 0;
-    }, 15000);
+    }, gallAudioDuration);
 
     return () => {
       clearTimeout(timer);
@@ -145,7 +145,7 @@ export default function PhotosScreen({ onNext }) {
         className="mt-16 pb-6 flex justify-center"
       >
         <GradientButton onClick={onNext}>
-          <Mail size={20} className="mt-0.5" /> Open My Message
+          <Mail size={20} className="mt-0.5" /> {openMessageButtonLabel}
         </GradientButton>
       </motion.div>
     </div>

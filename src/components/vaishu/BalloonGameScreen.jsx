@@ -3,8 +3,9 @@ import { motion, AnimatePresence } from "framer-motion"
 import confetti from "canvas-confetti"
 import GradientButton from "./GradientButton"
 import { ArrowRight } from "lucide-react"
+import { balloonWords, balloonScreenHeading, allPoppedMessage, popAudio, balloonNextButtonLabel } from "../../data"
 
-const WORDS = ["You", "are", "a", "Mental"]
+const WORDS = balloonWords
 const balloons = [
     { id: 1, xPct: 18, topPct: 15, color: "#fb7185" }, // rose-400
     { id: 2, xPct: 39, topPct: 22, color: "#f59e0b" }, // amber-500
@@ -78,7 +79,7 @@ export default function BalloonGameScreen({ onNext }) {
     const pop = (id) => {
         if (popped.includes(id)) return
         try {
-            new Audio("/audio/pop.mp3").play().catch(() => {})
+            new Audio(popAudio).play().catch(() => {})
         } catch (_) {}
         setPopped((prev) => [...prev, id])
         confetti({
@@ -115,11 +116,11 @@ export default function BalloonGameScreen({ onNext }) {
             >
                 {!allPopped ? (
                     <div className="pt-5 text-pink-100 font-semibold text-xl md:text-2xl tracking-wide drop-shadow-md z-30">
-                        Pop all 4 balloons 🎈
+                        {balloonScreenHeading}
                     </div>
                 ) : (
                     <div className="pt-5 text-pink-200 font-bold text-2xl md:text-3xl tracking-wider drop-shadow-[0_0_15px_rgba(255,105,180,0.6)] z-30 animate-pulse">
-                        Yay! You popped them all! 🎉
+                        {allPoppedMessage}
                     </div>
                 )}
 
@@ -187,7 +188,7 @@ export default function BalloonGameScreen({ onNext }) {
                         ><br></br>
                         <br></br>
                             <GradientButton onClick={onNext}>
-                                Next
+                                {balloonNextButtonLabel}
                                 <ArrowRight size={22} className="ml-1" />
                             </GradientButton>
                         </motion.div>

@@ -2,7 +2,7 @@ import { useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import confetti from "canvas-confetti"
 import GradientButton from "./GradientButton"
-import { NAME } from "../../data"
+import { NAME, wishAudio, cakeHeadingPrefix, decorateButtonLabel, lightCandleButtonLabel, popBalloonsButtonLabel } from "../../data"
 import { ArrowRight, Flame, WandSparkles } from "lucide-react"
 
 const confettiColors = ["#FF3CAC", "#FFD700", "#00D4FF", "#BF5FFF", "#FF8C00", "#FF2D78", "#7CFC00", "#FFFFFF", "#F687B3"];
@@ -22,9 +22,9 @@ export default function CakeScreen({ onNext, onDecorate }) {
   const lightCandle = () => {
     if (lit) return
     setLit(true)
-    // Play wish.mp3 once on candle light
+    // Play wishAudio once on candle light
     try {
-      const audio = new Audio("/audio/wish.mp3")
+      const audio = new Audio(wishAudio)
       audio.loop = false
       audio.play().catch(() => {})
     } catch (_) {}
@@ -54,7 +54,7 @@ export default function CakeScreen({ onNext, onDecorate }) {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              Happy Birthday, {NAME}
+              {cakeHeadingPrefix}{NAME}
             </motion.h1>
           )}
         </AnimatePresence>
@@ -78,7 +78,7 @@ export default function CakeScreen({ onNext, onDecorate }) {
             >
               <GradientButton onClick={decorate}>
                 <WandSparkles size={22} />
-                Decorate
+                {decorateButtonLabel}
               </GradientButton>
             </motion.div>
           ) : !lit ? (
@@ -91,7 +91,7 @@ export default function CakeScreen({ onNext, onDecorate }) {
             >
               <GradientButton onClick={lightCandle}>
                 <Flame size={22} />
-                Light the Candle
+                {lightCandleButtonLabel}
               </GradientButton>
             </motion.div>
           ) : (
@@ -102,7 +102,7 @@ export default function CakeScreen({ onNext, onDecorate }) {
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
               <GradientButton onClick={onNext}>
-                Pop the Balloons
+                {popBalloonsButtonLabel}
                 <ArrowRight size={22} className="ml-1" />
               </GradientButton>
             </motion.div>
