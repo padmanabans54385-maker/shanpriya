@@ -8,7 +8,7 @@
 //  🗓️  STEP 1 — SET THE BIRTHDAY DATE
 // ================================================================
 
-export const birthdayDate = new Date("2026-09-30T00:00:00");
+export const birthdayDate = new Date("2026-10-09T00:00:00");
 
 // ================================================================
 //  📸  IMAGES, VIDEOS, GIFS & AUDIO ASSETS
