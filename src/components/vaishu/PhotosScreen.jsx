@@ -83,7 +83,7 @@ export default function PhotosScreen({ onNext }) {
             loop
             modules={[EffectCards, Autoplay]}
             onSwiper={(sw) => (swiperRef.current = sw)}
-            style={{ width: "min(320px, 85vw)", height: "clamp(340px, 110vw, 430px)" }}
+            style={{ width: "min(270px, 72vw)", height: "clamp(330px, 95vw, 420px)" }}
           >
             {allMedia.map((item, i) => (
               <SwiperSlide key={i} style={cardSlideStyle}>
@@ -133,12 +133,14 @@ export default function PhotosScreen({ onNext }) {
         </motion.div>
       </div>
 
-      {/* Button */}
+      {/* Spacing & Button */}
+      <br />
+      <br />
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1, transition: { delay: 0.5 } }}
         transition={{ duration: 1.4, ease: "easeOut" }}
-        className="mt-8 sm:mt-12 pb-6 flex justify-center w-full"
+        className="mt-6 sm:mt-10 pb-6 flex justify-center w-full"
       >
         <GradientButton onClick={onNext}>
           <Mail size={20} className="mt-0.5" /> {openMessageButtonLabel}
