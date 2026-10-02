@@ -1,13 +1,14 @@
-export default function GradientButton({ className = "", children, ...props }) {
+export default function GradientButton({ className = "", style = {}, children, ...props }) {
     return (
         <button
             {...props}
             style={{
                 width: "min(320px, 90%)",
-                minHeight: "52px",
-                padding: "14px 24px",
+                minHeight: "48px",
+                padding: "12px 24px",
                 fontSize: "clamp(15px, 4vw, 18px)",
                 borderRadius: "14px",
+                ...style,
             }}
             className={[
                 "inline-flex items-center justify-center gap-2",

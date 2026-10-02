@@ -12,19 +12,23 @@ export default function Decoration() {
     return { x: dx / len, y: dy / len }
   }
   function flagPolygon(t, side) {
-    const p0L = { x: 0, y: 50 }
-    const p1L = { x: 250, y: 140 }
+    const isDesktop = typeof window !== "undefined" && window.innerWidth > 768
+    const curveY = isDesktop ? 120 : 70
+    const startY = isDesktop ? 40 : 20
+
+    const p0L = { x: 0, y: startY }
+    const p1L = { x: 250, y: curveY }
     const p2L = { x: 500, y: 0 }
-    const p0R = { x: 1000, y: 50 }
-    const p1R = { x: 750, y: 140 }
+    const p0R = { x: 1000, y: startY }
+    const p1R = { x: 750, y: curveY }
     const p2R = { x: 500, y: 0 }
 
     const p = side === "left" ? qPoint(t, p0L, p1L, p2L) : qPoint(t, p0R, p1R, p2R)
     const tan = side === "left" ? qTangent(t, p0L, p1L, p2L) : qTangent(t, p0R, p1R, p2R)
 
-    const base = window.innerWidth > 768 ? 40 : 60
+    const base = isDesktop ? 36 : 28
     const half = base / 2
-    const height = 38
+    const height = isDesktop ? 32 : 22
 
     const tx = tan.x
     const ty = tan.y
@@ -47,23 +51,26 @@ export default function Decoration() {
   }
 
   const flagColors = ["fill-rose-400", "fill-sky-400", "fill-amber-400", "fill-emerald-400", "fill-fuchsia-400"]
-  const flagsPerSide = window.innerWidth > 768 ? 10 : 7
+  const isDesktop = typeof window !== "undefined" && window.innerWidth > 768
+  const flagsPerSide = isDesktop ? 9 : 6
+  const curveY = isDesktop ? 120 : 70
+  const startY = isDesktop ? 40 : 20
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-40">
+    <div className="pointer-events-none fixed inset-0 z-0">
       {/* top bunting bar */}
-      <div className="relative h-28 md:h-32 lg:h-48 w-full">
-        <svg className="absolute inset-0 h-full w-full" viewBox="0 0 1000 160" preserveAspectRatio="none">
+      <div className="relative h-14 sm:h-20 md:h-28 w-full">
+        <svg className="absolute inset-0 h-full w-full" viewBox="0 0 1000 140" preserveAspectRatio="none">
           <path
-            d="M 0 50 Q 250 140 500 0"
-            className="fill-none stroke-rose-300/90"
-            strokeWidth="3"
+            d={`M 0 ${startY} Q 250 ${curveY} 500 0`}
+            className="fill-none stroke-rose-300/80"
+            strokeWidth="2.5"
             strokeLinecap="round"
           />
           <path
-            d="M 1000 50 Q 750 140 500 0"
-            className="fill-none stroke-violet-300/90"
-            strokeWidth="3"
+            d={`M 1000 ${startY} Q 750 ${curveY} 500 0`}
+            className="fill-none stroke-violet-300/80"
+            strokeWidth="2.5"
             strokeLinecap="round"
           />
 
@@ -71,7 +78,7 @@ export default function Decoration() {
             const t = (i + 1) / (flagsPerSide + 1)
             const color = flagColors[i % flagColors.length]
             return (
-              <polygon key={`L${i}`} points={flagPolygon(t, "left")} className={`${color} opacity-95 drop-shadow`} />
+              <polygon key={`L${i}`} points={flagPolygon(t, "left")} className={`${color} opacity-90 drop-shadow-sm`} />
             )
           })}
 
@@ -79,7 +86,7 @@ export default function Decoration() {
             const t = (i + 1) / (flagsPerSide + 1)
             const color = flagColors[(i + 1) % flagColors.length]
             return (
-              <polygon key={`R${i}`} points={flagPolygon(t, "right")} className={`${color} opacity-95 drop-shadow`} />
+              <polygon key={`R${i}`} points={flagPolygon(t, "right")} className={`${color} opacity-90 drop-shadow-sm`} />
             )
           })}
         </svg>
@@ -87,7 +94,7 @@ export default function Decoration() {
 
       {/* left ribbon */}
       <svg
-        className="absolute left-2 top-0 h-40 w-16 md:h-48 md:w-18 -z-1"
+        className="absolute left-1 top-0 h-24 w-10 sm:h-36 sm:w-14 -z-1 opacity-70"
         viewBox="0 0 64 160"
         preserveAspectRatio="none"
       >
@@ -100,7 +107,7 @@ export default function Decoration() {
         <path
           d="M16 0 C 6 28, 32 56, 12 84 C -4 112, 28 128, 10 156"
           stroke="url(#leftRibbon)"
-          strokeWidth="5"
+          strokeWidth="4"
           fill="none"
           strokeLinecap="round"
           className="drop-shadow"
@@ -109,7 +116,7 @@ export default function Decoration() {
 
       {/* right ribbon */}
       <svg
-        className="absolute right-2 top-0 h-40 w-16 md:h-48 md:w-18 -z-1"
+        className="absolute right-1 top-0 h-24 w-10 sm:h-36 sm:w-14 -z-1 opacity-70"
         viewBox="0 0 64 160"
         preserveAspectRatio="none"
       >
@@ -122,7 +129,7 @@ export default function Decoration() {
         <path
           d="M48 0 C 58 28, 32 56, 52 84 C 68 112, 36 128, 54 156"
           stroke="url(#rightRibbon)"
-          strokeWidth="5"
+          strokeWidth="4"
           fill="none"
           strokeLinecap="round"
           className="drop-shadow"
