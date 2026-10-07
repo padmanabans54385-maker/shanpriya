@@ -126,23 +126,25 @@ export const coverButtonLabel = "Tap to Open";
 export const specialMessage = `Happy Birthday la Shan 💙🎂✨
 Eppavum happy ah iru 💗... Inga MCA la enakku kedaicha best friend neethaan 🤗💞
 
-Innum konjam munnadiye pesi irundha nalla irundhirukkum la… 😅❤️ Nee enakku eppavum oru nalla friend. Apo apo nee oru maathiri pannitu enna neraya tension aakiduva 😂😭… Aana enna irundhaalum, unna maathiri oru ponna friend ah kedaichadhukku I’m very lucky da 💗
+Shan na romba yosikatha onnaku nan vacha nick name than athu 😂😂
+
+Innum konjam munnadiye pesi irundha nalla irundhirukkum la… 😅❤️ Nee enakku eppavum oru nalla friend 💎. Apo apo nee oru maathiri pannitu enna neraya tension aakiduva 😂😭… Aana enna irundhaalum, unna maathiri oru ponna friend ah kedaichadhukku I’m very lucky da 💗 
 
 Thanks for coming into my life! ✨ Next year la irundhu unoda career la nalla focus pannu. Kandippa unakku oru beautiful life irukkum da ❤️🌸
 
-Onnoda odamba nalla pathukko la ❤️ Correct-ah time-ku sapdu 🍛, apram nalla thoongu 😴💤 Romba neram mulichittu irukaadha… apram idhu pinnadi problem aagalam la 🥺. Naan sonna kelu nu namburen 🤗. Namma health-ah vida edhuvum mukkiyam illa la ❤️. So, stay healthy and happy forever! 🥰🌸💙
+Onnoda odamba nalla pathukko la ❤️ Correct-ah time-ku sapdu 🍛, apram nalla thoongu 😴💤 Romba neram mulichittu irukaadha… apram idhu pinnadi problem aagalam la 🥺. Naan sonna keapa nu namburen 🤗. Namma health-ah vida edhuvum mukkiyam illa la ❤️. So, stay healthy and happy forever! 🥰🌸💙
 
 Naan paathadhula romba strong-aana ponnu nee dhaan la 💪🏻❤️ Adhe maathiri eppavum iru… Yedhu nadandhaalum strong ah face pannu. ✨
 
 Unakkaaga eppavum support-ku naan iruppen… Ennanaalum, “naan irukken” nu ninaichuko. 💙
 
-Apram, kalyanathukku koopda marandhuraadha! 😂💍 Naan un marriage-ku dhaan waiting la! 🤣❤️
+Apram, kalyanathukku koopda marandhuraadha! 😂💍 Naan un marriage-ku dhaan waiting la!athuku evaloo kalavaram panna poranu theriyala 🤣❤️
 
 Nee edukura decisions la eppavum nalla yosichu, correct-a iru. 🌷✨ Apram college mudichu pona apram ennai marandhuraadha 😂… Touch-la irundhuko, okay va? 🤝💗
 
 Once again, Happy Birthday la Eruma! 😂🐃💙🎂
 Eppavum ippadiye happy ah, strong ah, jolly ah iru! 🥰✨
-Have a beautiful year ahead, Priya! 💗🎉`;
+Have a beautiful year ahead, Shan! 💗🎉`;
 export const messageNextButtonLabel = "Next";
 
 // ── Screen 10: Final Surprise Screen ────────────────────────────
